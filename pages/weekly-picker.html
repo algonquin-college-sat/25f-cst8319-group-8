@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weekly Time Picker (Standalone)</title>
+  <link rel="stylesheet" href="weekly-picker.css">
+</head>
+<body>
+  <main class="wrap">
+    <section class="card" role="group" aria-label="Weekly Time Picker">
+      <div class="card-head one-line">
+        <h2>Availability</h2>
+        <button type="button" class="btn outline" id="wp-clear">Clear</button>
+      </div>
+
+      <div class="scroller">
+        <table class="grid" id="scheduleTable" aria-describedby="desc">
+          <caption id="desc" class="sr-only">Select your weekly availability: days as rows and time blocks as columns.</caption>
+          <thead>
+            <tr>
+              <th class="head-day">Day</th>
+              <th class="head-col" data-col="morning">Morning</th>
+              <th class="head-col" data-col="afternoon">Afternoon</th>
+              <th class="head-col" data-col="evening">Evening</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- rows injected by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="weekly-picker.js"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register — Volunteer & Senior</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<div class="register0">
+<header>
+    <nav class="nav" aria-label="Primary">
+        <div class="logo">
+            <img src="../assets/img/logo.png" alt="BuddyLink logo" />
+            <span>BuddyLink</span>
+        </div>
+        <div class="menu">
+
+            <nav class="flex items-center justify-between">
+                <a href="../index.html" aria-label="Back to Home">← Back to Home</a>
+            </nav>
+            <label class="lang" aria-label="Language switcher">
+                <i class="fas fa-globe"></i>
+                <select id="langSelect" aria-label="Language">
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                </select>
+            </label>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section id="register" aria-labelledby="register-title">
+        <div class="wrap">
+            <h2 id="register-title" data-i18n="registerTitle">Registration</h2>
+            <p class="section-sub" data-i18n="registerSub">Choose your role to sign up. Fields are demo only
+                (client‑side validation). Hook up your backend at <code>/api/register-senior</code> and
+                <code>/api/register-volunteer</code>.
+            </p>
+
+            <form id="form-vol">
+                <div class="row cols-2">
+                    <div>
+                        <label for="v-fname" data-i18n="fname">First Name</label>
+                        <input id="v-fname" name="fname" required data-i18n-placeholder="fnamePh"
+                            placeholder="Enter first name" />
+                    </div>
+                    <div>
+                        <label for="v-lname" data-i18n="lname">Last Name</label>
+                        <input id="v-lname" name="lname" required data-i18n-placeholder="lnamePh"
+                            placeholder="Enter last name" />
+                    </div>                    
+                    <div>
+                        <label for="v-email" data-i18n="email">Email</label>
+                        <input id="v-email" name="email" type="email" required data-i18n-placeholder="emailPh"
+                            placeholder="example@email.com" />
+                    </div>
+                    <div>
+                        <label for="v-phone" data-i18n="phone">Phone</label>
+                        <input id="v-phone" name="phone" required inputmode="tel" data-i18n-placeholder="phonePh"
+                            placeholder="e.g., 647-123-4567" />
+                    </div>
+                    <div>
+                        <label for="v-city" data-i18n="city">City / Area</label>
+                        <input id="v-city" name="city" required data-i18n-placeholder="cityPh"
+                            placeholder="e.g., Toronto / North York" />
+                    </div>
+                </div>
+
+                <div>
+                    <label data-i18n="skills">Services you can provide (multi‑select)</label>
+                    <div class="checks" aria-label="skills">
+                        <label class="chip"><input type="checkbox" name="skill-chat" value="chat"> <span
+                                data-i18n="needChat">Friendly chat</span></label>
+                        <label class="chip"><input type="checkbox" name="skill-video" value="video"> <span
+                                data-i18n="needVideo">Video companionship</span></label>
+                        <label class="chip"><input type="checkbox" name="skill-read" value="read"> <span
+                                data-i18n="needRead">Read letters/news</span></label>
+                        <label class="chip"><input type="checkbox" name="skill-walk" value="walk"> <span
+                                data-i18n="needWalk">Short walk</span></label>
+                        <label class="chip"><input type="checkbox" name="skill-grocery" value="grocery"> <span
+                                data-i18n="needGrocery">Groceries/meds</span></label>
+                        <label class="chip"><input type="checkbox" name="skill-tech" value="tech"> <span
+                                data-i18n="needTech">Tech help</span></label>
+                    </div>
+                </div>
+
+                <div class="row cols-2">
+
+                    <div>
+                        <label for="v-id" data-i18n="background">Background check</label>
+                        <select id="v-id" name="background">
+                            <option value="no" data-i18n="bgNo">Not yet</option>
+                            <option value="inprogress" data-i18n="bgProgress">In progress</option>
+                            <option value="yes" data-i18n="bgYes">Completed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="availability-picker-block">
+                    <section class="picker-card" role="group" aria-label="Weekly Time Picker">
+                        <div class="picker-card-head one-line">
+                            <label for="v-availability" data-i18n="availability">Availability</label>
+                            <button type="button" class="btn outline" id="wp-clear">Clear</button>
+                        </div>
+
+                        <div class="picker-scroller">
+                            <table class="picker-grid" id="scheduleTable" aria-describedby="desc">
+                                
+                                <thead>
+                                    <tr>
+                                        <th class="picker-head-day">Day</th>
+                                        <th class="picker-head-col" data-col="morning">Morning</th>
+                                        <th class="picker-head-col" data-col="afternoon">Afternoon</th>
+                                        <th class="picker-head-col" data-col="evening">Evening</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <label class="chip"><input type="checkbox" required name="consent"> <span data-i18n="consent">I agree to
+                        the volunteer code of conduct and privacy.</span></label>
+
+                <div class="form-actions">
+                    <button class="btn" type="submit"><i class="fas fa-paper-plane"></i> <span
+                            data-i18n="submitVolunteer">Submit volunteer sign‑up</span></button>
+
+                </div>
+                <p id="v-msg" class="notice" hidden data-i18n="vMsg">Thanks for signing up! (demo) We'll match you based
+                    on your time and skills.</p>
+            </form>
+        </div>
+    </section>
+</main>
+
+
+
+
+
+
+
+<footer>
+    <p>&copy; 2025</p>
+</footer>
+</div>
+<script src="../js/app.js"></script>
+<script src="../js/weekly-picker.js"></script>
+</body>
+
+</html>

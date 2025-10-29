@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BuddyLink - Volunteer & Senior Registration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="./js/app.js" defer></script>
+
+
+  <!-- the root path of the project -->
+  <base href="/vs/">
+</head>
+
+<body>
+
+
+
+  <header>
+    <nav class="nav" aria-label="Primary">
+      <div class="logo">
+        <img src="assets/img/logo.png" alt="logo" />
+        <span>BuddyLink</span>
+      </div>
+      <div class="menu">
+        <a href="pages/register.html" data-i18n="navRegister">Register</a>
+        <a href="#about" data-i18n="navAbout">About</a>
+        <a class="btn" id="ctaJoin" href="pages/login.html" role="button">
+          <i class="fas fa-hands-helping"></i>
+          <span data-i18n="login">Login</span>
+        </a>
+        <label class="lang" aria-label="Language switcher">
+          <i class="fas fa-globe"></i>
+          <select id="langSelect" aria-label="Language">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+          </select>
+        </label>
+      </div>
+    </nav>
+  </header>
+
+
+
+  <section class="hero hero--overlay" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero-visual">
+        <!-- <img src="assets/img/volunteer-helping-senior.jpg" alt="Volunteers with senior"> -->
+        <img class="top-picture" src="assets/img/volunteer-helping-senior.jpg" alt="">
+      </div>
+
+
+      <div class="hero-steps">
+        <div class="hero-step hero-step--title">
+          <h1 id="hero-title">
+            Connect volunteers with seniors for warm companionship and daily help
+          </h1>
+        </div>
+
+        <div class="hero-step hero-step--body">
+          <p class="lead">
+            BuddyLink supports <strong>senior sign-up</strong> and <strong>volunteer sign-up</strong>
+            We match by interests and
+            availability. Services include friendly chats, video companionship,
+            reading mail, short walks, groceries/meds pickup, and basic tech
+            help.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="pages/login.html"><i class="fas fa-user-plus"></i> I’m a senior, need help</a>
+            <a class="btn outline" href="pages/login.html"><i class="fas fa-user-friends"></i> I’m a volunteer, want to
+              help</a>
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <div id="event-container">
+
+    <div class="wrap">
+      <h2 id="event-title" class="event-title">Upcoming Event</h2>
+    </div>
+    <div>
+      <script>
+        (function () {
+          async function loadEventSection(eventFile) {
+            containerId = 'event-container';
+            const mount = document.getElementById(containerId);
+            const url = new URL('pages/events/' + eventFile, document.baseURI).toString();
+            const r = await fetch(url, { cache: 'no-store' });
+            if (!r.ok) throw new Error(`${r.status} ${r.statusText}`);
+            const html = await r.text();
+
+            const wrap = document.createElement('div');
+            wrap.className = 'event-block';
+            wrap.innerHTML = html;
+            mount.appendChild(wrap);
+          }
+
+          window.loadEventSection = loadEventSection;
+
+          document.addEventListener('DOMContentLoaded', () => {
+
+            // Add event html files here:
+            loadEventSection('event-001.html');
+
+            loadEventSection('event-001.html');
+            // loadEventSection('event-003.html');
+            // loadEventSection('event-004.html');
+            // loadEventSection('event-005.html');
+
+
+          });
+        })();
+
+
+
+      </script>
+    </div>
+  </div>
+  </div>
+
+
+  <section id="about" class="hero" aria-labelledby="about-title">
+    <div class="wrap grid cols-2">
+      <div>
+        <h2 id="about-title" data-i18n="aboutTitle">About BuddyLink</h2>
+        <p class="lead" data-i18n="aboutLead">
+          This is a demo page in a modern nonprofit style. Integrate it into
+          your project and connect both forms to your backend
+          (Node/Flask/Spring, etc.).
+        </p>
+        <ul class="lead" style="padding-left: 18px">
+          <li data-i18n="about1">Fully responsive layout</li>
+          <li data-i18n="about2">Accessibility: labels & ARIA</li>
+          <li data-i18n="about3">Basic client validation & messages</li>
+          <li data-i18n="about4">Extensible to auth/database</li>
+        </ul>
+      </div>
+      <div>
+        <img src="xxx.png" alt="About image" />
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot">
+      <div>© 2025 BuddyLink</div>
+      <div class="notice" style="background: transparent; border-color: #fff; color: #fff" data-i18n="demoNote">
+        Demo only: submissions show a local success message
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
